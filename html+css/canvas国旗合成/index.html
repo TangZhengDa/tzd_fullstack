@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .cicle {} */
+    </style>
+</head>
+
+<body>
+    <div class="cicle"></div>
+    <input type="file" id="file">
+    <!-- drawRac rect 图片 -->
+    <canvas id="preview" width="290px" height="290px"></canvas>
+    <img src="./img/china.png" alt="" id="img" style="display: none;">
+    <script>
+        window.onload = function () {
+            const file = document.getElementById('file');
+            const img = document.getElementById('img');
+            const preview = document.getElementById('preview');
+            const ctx = preview.getContext('2d');
+            ctx.drawImage(img, 0, 0, 290.290);
+            file.addEventListener('change', (event) => {
+                let file = event.target.file[0]
+                if (file.type.includes('image/')) {
+                    return;
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
