@@ -2,8 +2,9 @@
 const cloud = require('wx-server-sdk')
 const rp = require('request-promise') //http模块
 const cheerio = require('cheerio')
-const charset = require('superagent-charset')//解决乱码
-const superagent = require('superagent') //发起请求
+let charset = require('superagent-charset')//解决乱码
+let superagent = require('superagent') //发起请求
+charset(superagent)
 cloud.init()
 
 // 云函数入口函数
@@ -24,6 +25,6 @@ exports.main = async (event, context) => {
     hotData.push(obj)
   }
   return {
-    result
+    hotData
   }
 }
