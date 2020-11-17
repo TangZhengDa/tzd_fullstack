@@ -13,6 +13,8 @@ exports.main = async (event, context) => {
   const result = await superagent.get(serverUrl).charset('gb2312')
   const data = result.text || ''
   const $ = cheerio.load(result.text)
+
+  //热门推荐
   let hotList = $('.hot').find('.image')
   let hotData = [] //热榜
   for (let i = 0; i < hotList.length; i++) {
@@ -24,7 +26,28 @@ exports.main = async (event, context) => {
     obj['detail'] = $(hotList[i]).next().find('dd').text()
     hotData.push(obj)
   }
+
+  //分类推荐
+  let classifyList = $('.block')
+  let classifyData = [] //分类
+  for (let i = 0; i < classifyList.length; i++) {
+    let obj = {}
+    let childData = []
+    let childDom = $(classifyList[i]).find('.lis').find('li')
+    for (let j = 0; j < childDom.length; j++) {
+      let childObj = {}
+      childObj['name'] = $(childDom[j]).find('.s2').find('a').text()
+      childObj['url'] = $(childDom[j]).find('.s2').find('a').attr('href')
+      childObj['author'] = $(childDom[j]).find('.s3').text()
+      childData.push(childObj)
+    }
+    obj['classifyList'] = $(classifyList[i]).find('h2').text()
+    obj['data'] = childData
+    classifyData.push(obj)
+  }
+
   return {
-    hotData
+    hotData,
+    classifyData
   }
 }

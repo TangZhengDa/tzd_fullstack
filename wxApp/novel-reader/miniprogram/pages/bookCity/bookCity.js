@@ -6,8 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hotData: []
+    hotData: [],
+    classifyData: []
   },
+
   getList() {
     wx.showLoading({
       title: '正在加载'
@@ -20,11 +22,19 @@ Page({
       wx.hideLoading()
       const result = res.result || {}
       this.setData({
-        hotData: result.hotData
+        hotData: result.hotData,
+        classifyData: result.classifyData
       })
+      console.log(this.data.classifyData)
     })
   },
 
+  toReading(e) {
+    let url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url: `../bookSection/bookSection?url=${url}`,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
