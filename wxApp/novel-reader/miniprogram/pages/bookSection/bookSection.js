@@ -5,8 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bookDetailData: [],
-
+    bookDetailData: {},
+    lastData: [],
+    pageData: [],
+    page: 1, //当前页
+    pageArray: [],
+    pre: '',
+    next: '',
+    preAble: false,
+    nextAble: false
   },
 
   getSection(url) {
@@ -23,9 +30,27 @@ Page({
       wx.hideLoading()
       const { result } = res
       this.setData({
-        bookDetailData: result.bookDetailData
+        bookDetailData: result.bookDetailData,
+        lastData: result.lastData,
+        pageData: result.pageData,
+        pageArray: result.pageArray,
+        next: result.next,
+        pre: result.pre,
+        preAble: result.pre === '' ? true : false,
+        nextAble: result.next === '' ? true : false,
+
       })
     })
+  },
+
+  //上一页
+  prePage() {
+    if (this.data.preAble) return
+    this.getSection(this.data.pre)
+  },
+  nextPage() {
+    if (this.data.nextAble) return
+    this.getSection(this.data.next)
   },
   /**
    * 生命周期函数--监听页面加载
