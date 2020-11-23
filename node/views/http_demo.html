@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <style>
+        body {
+            background-color: #307ac6;
+            text-align: center;
+            color: red;
+            margin: 10% 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>welcome to lm</h1>
+    <script>
+        var socket = io()
+        document.getElementById('btn').onclick = function () {
+            socket.emit('link_to_server', document.getElementById('send_info'))
+        }
+
+        //接收到响应
+        socket.on('Link_to_client', (msg) => {
+            document.getElementById('info').append(`${msg}`)
+        })
+    </script>
+</body>
+
+</html>
