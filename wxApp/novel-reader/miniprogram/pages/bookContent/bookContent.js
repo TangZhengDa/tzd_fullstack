@@ -5,14 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    url: '',
+    name: '',
+    imgUrl: ''
   },
 
+  getContent(url) {
+    wx.showLoading({
+      title: '正在加载',
+    })
+    wx.cloud.callFunction({
+      name: 'getContent',
+      data: {
+        url: url
+      }
+    }).then(res => {
+      console.log(res)
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let { url, name, imgUrl } = options
+    this.setData({
+      url,
+      name,
+      imgUrl
+    })
+    this.getContent(url)
   },
 
   /**
