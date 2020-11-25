@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.common.dev.js"></script>
+
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- <div v-show="isLogin">
+            {{msg}}
+        </div> -->
+
+        <!-- <ul class="news">
+            <li class="item" v-for="item in news">{{item.title}}</li>
+        </ul> -->
+
+        <!-- <span>{{msg}}</span> - <span v-text='msg2'></span> - <span v-html='msg3'></span> -->
+
+        <!-- <div class="count">
+            本次得分:{{count}}
+            <button @click="add">加分</button>
+            <button @click="reduce">减分</button>
+        </div> -->
+
+        <!-- <div class="message">
+            <p>文本内容：{{message}}</p>
+            <p>
+                <input type="text" v-model="message">
+            </p>
+        </div> -->
+
+        <!-- <div :class="classname">
+            <img v-bind:src="imgUrl" alt="">
+        </div> -->
+
+        <!-- <div v-pre>{{msg}}</div> -->
+
+        <!-- <div v-cloak>{{msg}}</div> -->
+
+        <!-- <div>
+            <p v-once>第一次绑定的值:{{message}}</p>
+            <input type="text" v-model='message'>
+        </div> -->
+    </div>
+    <script>
+        // let dom = document.getElementById('app')
+        // dom.innerHTML = '你好'
+        let app = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello world',
+                msg2: '你好',
+                msg3: '<h1>hi</h1>',
+                isLogin: false,
+                news: [
+                    { title: '"空降"不到一周 韩俊任吉林代省长 曾是刘鹤"副手"' },
+                    { title: '上门女婿成村霸，敲诈勒索故意纵火还打伤司法人员' },
+                    { title: 'X光显示肚子内有异物 港媒:黄之锋被关医院单人囚室' },
+                    { title: '特朗普突然出手，举行了史上最短一次记者会！' }
+                ],
+                count: 0,
+                message: ''
+            },
+            methods: {
+                add() {
+                    this.count++
+                },
+                reduce() {
+                    this.count--
+                }
+            },
+            imgUrl: 'https://image.baidu.com/search/detail?ct=503316480&z=&tn=baiduimagedetail&ipn=d&word=%E6%B7%B1%E7%94%B0%E5%92%8F%E7%BE%8E&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=-1&hd=&latest=&copyright=&cs=1742912716,811197237&os=1527189006,3190838303&simid=0,0&pn=9&rn=1&di=176220&ln=1227&fr=&fmq=1606291271334_R&ic=0&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&is=0,0&istype=2&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fad01e1496df82779af53c458b97429d943faa482.jpg&rpstart=0&rpnum=0&adpicid=0&force=undefined'
+        })
+    </script>
+</body>
+
+</html>

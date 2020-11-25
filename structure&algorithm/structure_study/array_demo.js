@@ -55,15 +55,35 @@ let array_delete = function (numbers) {//删除元素
 // console.log(numbers);
 
 //二维数组的输出
-let averageTemp = []
-averageTemp[0] = [10, 11, 12, 13, 14, 15]
-averageTemp[1] = [20, 21, 22, 23, 24, 25]
+// let averageTemp = []
+// averageTemp[0] = [10, 11, 12, 13, 14, 15]
+// averageTemp[1] = [20, 21, 22, 23, 24, 25]
 
-function printMatrix(myMatrix) {
-    for (let i = 0; i < myMatrix.length; i++) {
-        for (let j = 0; j < myMatrix[i].length; j++) {
-            console.log(myMatrix[i][j]);
-        }
-    }
-}
-printMatrix(averageTemp)
+// function printMatrix(myMatrix) {
+//     for (let i = 0; i < myMatrix.length; i++) {
+//         for (let j = 0; j < myMatrix[i].length; j++) {
+//             console.log(myMatrix[i][j]);
+//         }
+//     }
+// }
+// printMatrix(averageTemp)
+// console.table(averageTemp)
+
+//数组合并
+// const zero = 0
+// const number1 = [1, 2, 3]
+// const number2 = [4, 5, 6]
+// let number = number2.concat(zero, number1) //先后将zero与number1合并到number2末尾
+// console.log(number);
+
+//迭代器函数
+const isEven = x => x % 2 === 0
+// console.log(numbers.every(isEven));//迭代每个元素，直到返回false停止
+// console.log(numbers.some(isEven));//迭代每个元素，直到返回true停止
+// numbers.forEach(x => console.log(x % 2 === 0))//迭代整个数组
+// console.log(numbers.map(isEven));//返回包含迭代结果true false的新数组
+// console.log(numbers.filter(isEven));//返回包含函数返回true的元素的新数组
+// console.log(numbers.reduce((previous, current) => previous + current));//对数组所有元素求和
+
+
+
