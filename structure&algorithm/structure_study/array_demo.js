@@ -84,6 +84,11 @@ const isEven = x => x % 2 === 0
 // console.log(numbers.map(isEven));//返回包含迭代结果true false的新数组
 // console.log(numbers.filter(isEven));//返回包含函数返回true的元素的新数组
 // console.log(numbers.reduce((previous, current) => previous + current));//对数组所有元素求和
+for (const n of numbers) {
+    console.log(n % 2 === 0 ? 'even' : 'odd');
+}
+
+
 
 
 
