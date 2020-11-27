@@ -86,7 +86,7 @@ const isEven = x => x % 2 === 0
 // console.log(numbers.reduce((previous, current) => previous + current));//对数组所有元素求和
 for (const n of numbers) {
     console.log(n % 2 === 0 ? 'even' : 'odd');
-}//
+}//123
 
 
 
