@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Goods from '@/views/goods/goods'
 
-
 Vue.use(VueRouter)
 
 const routes = [
