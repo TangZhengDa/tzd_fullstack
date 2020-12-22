@@ -4,6 +4,7 @@
       <router-link to="/">首页</router-link> |
       <router-Link to="/about">关于</router-Link>
     </p>
+    <VerifyCode />
     <!-- 路由入口 -->
     <transition name="fade">
       <router-view></router-view>
