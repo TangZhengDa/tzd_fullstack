@@ -14,6 +14,7 @@ class watcher {
     const typeStr = Object.prototype.toString.call(target) // "[object Object]"
     return typeStr.slice(8, -1)
   }
+  
 
   setData(_key) {
     // this.$data
