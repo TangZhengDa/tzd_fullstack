@@ -1,7 +1,7 @@
 function foo() {
   console.log(a);
 }
-function bar() {
+function bar () {
   var a = 3
   foo()
 }
