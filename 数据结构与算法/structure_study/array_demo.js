@@ -8,6 +8,7 @@ let array_append = function (numbers) {//添加元素
     // numbers.push(10, 11)
 
 
+
     //在数组开头插入元素的两种方式
     // Array.prototype.insertFirstPosition = function (value) {
     //     for (let i = this.length; i > 0; i--) {
