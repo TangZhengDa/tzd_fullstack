@@ -4,8 +4,10 @@ let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 let array_append = function (numbers) {//添加元素
     //在数组末尾添加元素的两种方式
+  
     // numbers[numbers.length] = 10
     // numbers.push (10, 11)
+
 
 
 
