@@ -12,11 +12,11 @@ class Eat extends Component{
     }
   }
 
-  inputChange(e) {
+  inputChange() {
     // console.log(this);
     // this.state.inputValue = e.target.value
     this.setState({
-      inputValue: e.target.value
+      inputValue: this.input.value
     })
   }
 
@@ -39,7 +39,10 @@ class Eat extends Component{
       <Fragment>
         <div>
           {/* <label for="addGoods">加菜:</label> */}
-          <input id="addGoods" className="input" value={this.state.inputValue} onChange={this.inputChange.bind(this)}></input>
+          <input id="addGoods" className="input" value={this.state.inputValue}
+            onChange={this.inputChange.bind(this)}
+            ref={(input) => {this.input=input}}
+          ></input>
           <button onClick={this.addList.bind(this)}>下单</button>
         </div>
         <ul>

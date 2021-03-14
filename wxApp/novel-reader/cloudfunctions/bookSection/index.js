@@ -9,21 +9,22 @@ cloud.init()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  let serverUrl = `https://wap.biqiuge8.com/${event.url}`
+  let serverUrl = `https://www.biqiugege8.com${event.url}`
+  serverUrl = serverUrl.substring(0,serverUrl.length-1)
   const result = await superagent.get(serverUrl).charset('gb2312') // 取决于网页的编码方式
   const data = result.text || ''
   const $ = cheerio.load(data)
-  const bookDetail = $('.book_info')
+  const bookDetail = $('.info')
 
   let bookDetailData = {} // 本书详情
-  bookDetailData['name'] = $(bookDetail).find('.cover').find('img').attr('alt')
-  bookDetailData['imgurl'] = $(bookDetail).find('.cover').find('img').attr('src');
-  bookDetailData['author'] = $(bookDetail).find('.book_box').find('.dd_box').eq(0).find('span').eq(0).text();
-  bookDetailData['status'] = $(bookDetail).find('.book_box').find('.dd_box').eq(1).find('span').eq(0).text();//状态
-  bookDetailData['lastTime'] = $(bookDetail).find('.book_box').find('dd').eq(2).find('span').text();
-  bookDetailData['lastSection'] = $(bookDetail).find('.book_box').find('dd').eq(3).find('span').find('a').text();//最新章节
-  bookDetailData['lastSectionUrl'] = $(bookDetail).find('.book_box').find('dd').eq(3).find('span').find('a').attr('href');//最新章节地址
-  bookDetailData['bookDetail'] = $('.book_about').find('dd').text();//小说介绍
+  bookDetailData['name'] = $(bookDetail).find('.cover').find('img').attr('alt') //书名
+  bookDetailData['imgurl'] = serverUrl + $(bookDetail).find('.cover').find('img').attr('src'); //图片
+  bookDetailData['author'] = $(bookDetail).find('.small').find('span').eq(0).text(); //作者
+  bookDetailData['status'] = $(bookDetail).find('.small').find('span').eq(2).text(); //状态
+  bookDetailData['lastTime'] = $(bookDetail).find('.small').find('span').eq(4).text(); //更新时间
+  bookDetailData['lastSection'] = $(bookDetail).find('.small').find('span').eq(5).find('a').text(); //最新章节
+  bookDetailData['lastSectionUrl'] = serverUrl + $(bookDetail).find('.small').find('span').eq(5).find('a').attr('href'); //最新章节地址
+  bookDetailData['bookDetail'] = $(bookDetail).find('.intro').text();//小说介绍
 
   // 上一页和下一页地址
   let pre = $('.listpage').find('.left').find('a').attr('href') || '';

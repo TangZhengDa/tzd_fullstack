@@ -8,16 +8,19 @@
 		<view>
 			<view class="name">{{bookDetailData.name}}</view>
 			<view>
+        作者：
 				<text>{{bookDetailData.author}}</text>
 			</view>
 			<view>
+        状态：
 				<text>{{bookDetailData.status}}</text>
 			</view>
 			<view>
+        更新时间：
 				<text>{{bookDetailData.lastTime}}</text>
 			</view>
 			<view class="lastNew">
-				最新：
+				最新状态：
 				<text data-url="lastSectionUrl">{{bookDetailData.lastSection}}</text>
 			</view>
 		</view>

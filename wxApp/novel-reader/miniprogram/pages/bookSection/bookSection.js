@@ -28,7 +28,7 @@ Page({
         url: url
       }
     }).then(res => {
-      // console.log(res)
+       console.log(res)
       wx.hideLoading()
       const { result } = res
       this.setData({
